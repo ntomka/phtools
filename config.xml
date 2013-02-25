@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets" version="4.2.0">
+	<name>Prohardver! Eszközök</name>
+	<description>A Prohardver! lapcsalád funkcióit bővítő kiegészítő.</description>
+	<author>Nagy Tamás (ntomka)</author>
+	<icon src="images/icon128.png" />
+	<icon src="images/icon16.png" />
+	<icon src="images/icon19.png" />
+	<icon src="images/icon32.png" />
+	<icon src="images/icon48.png" />
+	<content src="bg_page.html" encoding="utf-8" type="text/html" />
+    <access origin="http://prohardver.hu" subdomains="true" />
+    <access origin="http://itcafe.hu" subdomains="true" />
+    <access origin="http://gamepod.hu" subdomains="true" />
+    <access origin="http://logout.hu" subdomains="true" />
+    <access origin="http://mobilarena.hu" subdomains="true" />
+    <access origin="http://hardverpro.hu" subdomains="true" />
+    <license href="http://www.gnu.org/licenses/gpl.html">
+		'Prohardver! Eszközök' is free software: you can redistribute it and/or modify
+		it under the terms of the GNU General Public License as published by
+		the Free Software Foundation, either version 3 of the License, or
+		(at your option) any later version.
+    </license>
+</widget>

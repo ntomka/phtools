@@ -1,0 +1,11 @@
+col.num_msg, th.num_msg, td.num_msg {
+	width: 70px !important;
+}
+
+col.num_msg, th.num_msg, td.opciok {
+	width: 70px !important;
+}
+
+.privbeszek .level1 {
+	width: 215px !important; 
+}

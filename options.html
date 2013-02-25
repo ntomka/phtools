@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Beállítások - Prohardver! Eszközök</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script type="text/javascript" src="includes/mootools-core-1.3.1-full-compat-yc.js"></script>
+		<script type="text/javascript" src="includes/RequestSender.class.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/optionsPage.css" />
+		<script type="text/javascript" src="js/optionsPage.js"></script>
+	</head>
+	<body>
+		<div id="content">
+			<div id="left-menu">
+				<div id="logo"></div>
+				<h1>Prohardver! Eszközök</h1>
+				<ul>
+					<li id="about-menu" class="active">Névjegy</li>
+					<li id="general-menu">Általános</li>
+					<li id="notifications-menu">Értesítések</li>
+					<li id="hotkeys-menu">Billentyűparancsok</lli>
+					<li id="observedTopics-menu">Témaszerkesztő</i>
+				</ul>
+			</div>
+			<div id="main">
+				<div id="main-content">
+					<div id="main-pages">
+						<div class="page" id="about-page">
+							<h1>Névjegy</h1>
+							<section>
+								<h3>Készítette</h3>
+								<div>
+									<div>Nagy Tamás (<a target="_blank" href="http://prohardver.hu/tag/ntomka.html">ntomka</a>) - &copy; 2010 - 2011</div>
+									<div>Bemutató: <a href="http://logout.hu/cikk/prohardver_eszkozok/bemutato.html">Logout cikk</a></div>
+									<div>Fórumtéma: <a href="http://prohardver.hu/tema/re_prohardver_eszkozok/friss.html">Prohardver! Eszközök téma</a></div>
+									<div>Ha fel szeretnéd használni a kiegészítő forrását, vagy átírni más böngészőre, keress meg a Prohardveren!</div>
+								</div>
+							</section>
+							<section>
+								<h3>Verziótörténet</h3>
+								<div>
+									<div class="informational-text">
+										Az aktuálisan telepített verziód nagyobb is lehet, mint az alábbi legutolsó verziószám, ugyanis
+										a hibajavításokat tartalmazó verziók leírását nem tűntetem itt fel.
+									</div>
+									<ul>
+										<li>4.4<br />
+											<p>A felugró menüben ezentúl, ha olvasatlan téma van, akkor a 'Téma' felirat mellett megjelenik egy
+												varázspálca ikon, amire katintva az összes olvasatlan téma megnyílik egy-egy új lapon.
+												Ugyanez az ikon megjelenik az üzeneteknél, csak ott értelemszerűen az olvasatlan
+												privát üzeneteket nyitja meg új lapokon.</p>
+										</li>
+										<li>4.3<br />
+											<p>Témaszerkesztő a beállításokásoknál.</p>
+											<p>A beállításokon keresztül megtekinthetők a figyelésre felvett témák, és azok mentett tulajdonságai, valamint
+												itt lehetőség van beállítani, ha másik domainen szeretnénk figyeltetni és megnyitni a témát
+												a felugróból vagy az értesítéseken keresztül. Ezeken kívül a témák törlésére is lehetőség van itt.</p>
+										</li>
+										<li>4.2<br />
+											<p>A böngésző eszköztár felugró menüjében ezentúl egy zöld pipa segítségével az adott témát olvasottnak lehet
+											jelölni, ha az olvasatlan hozzászólást tartalmaz.</p>
+										</li>
+										<li>4.1<br />
+											<p>Alapértelmezésként ha nem vagy bejelentkezve a fórumra, akkor a témákat nem ellenőrzi
+											a kiegészítő, nem kapsz se ezekről, se a privát üzenetekről értesítést, valamint
+											a felugró menüben egyik sem jelenik meg. Ez a működés a beállításokon keresztül
+											felülbírálható.</p>
+										</li>
+										<li>4.0<br />
+											<p>
+												Az adatok tárolásáért felelős részeket szinte teljesen átírtam, ami gyorsabb, hatékonyabb és valószinüleg
+												kevesebb hibával járó működést eredményez. Ennek mellékhatásaként a tartalomscriptek is optimalizálódtak,
+												így itt mindenképp gyorsabb lesz a működés.
+												<strong>
+													A tárolási mód megváltozása miatt előfordulhat, hogy egyes felhasználóknál a figyelésre általuk
+													felvett témák eltűnnek. A tesztek alatt ez nem fordult elő, de az ördög sosem alszik. Ha ez nálad
+													jelentkezik, újra fel kell venned a topicokat. Köszönöm a megértést!
+												</strong>
+											</p>
+											<p>A beállítások oldalt újraírtam teljesen, minek szintén mellékhatásaként egy rakat JS kódott ki tudtam kukázni,
+											emellett arculatban beleillik a böngésző designjába. :)</p>
+											<p>A felhasználók adatlapján a nicknevük alatt megjelenik egy link a hardveraprós hirdetéseik listázására.
+											Lehetőség van ezentűl a hozzászólás és üzenet szerkesztőben használható gyorsbillentyűk konfigurálására. Ezt a
+											beállítások oldalon találjátok meg.</p>
+											<p>Hardveraprós hozzászólás figyeltetés.</p>
+										</li>
+										<li>3.1<br />
+											A privát üzenetek értesítésénél ezentúl kiírja, hogy hány embertől érkezett üzenet valamint fel is sorolja
+											őket és zárójelben fel is tűnteti, hogy hány üzenet érkezett tőlük.
+											Valamint egyértelműbbek lettek a hibaüzenetek és néhány hibajavítást is tartalmaz ez a verzió.
+										</li>
+										<li>3.0<br />
+											Hozzászólás figyeltetése<br />
+											A témákban és a bejegyzéseknél megjelenik egy csillag a téma tetején és alján az útvonalaknál, ez igaz a
+											bejegyzésekre is (közvetlenül az email értesítés levél ikonja mellett). Erre kattintva egy téma/bejegyzés
+											felvehető a figyeltetés listára, illetve levehető arról, ha már fent van. Ha az előbbit megtettük, akkor
+											egy értesítő üzenetet kapunk új hozzászólás érkezésekor a témában/bejegyzésben.<br />
+											A témába/bejegyzésbe belépve az új hozzászólások a privát üzenetekben is ismert színezést kapják
+											(csak az első oldalon).<br />
+											Az eszköztár ikon felugró menüjében is megtekinthető a figyeltetett témák/bejegyzések listája, valamint
+											az előtt lévő ikonnal eltávolíthatók innen.<br />
+											Az eszköztár ikonján ezentúl ebben a formában jelenik meg értesítés: a|b, ahol <i>a</i> azon
+											témák/bejegyzések száma, ahol új hozzászólás található, <i>b</i> az új üzenetek
+											eddig is megjelenő száma.
+											Ezen felül a felugró menüben található egy ikon a beállítások gyors elérésére.
+										</li>
+										<li>2.1<br />
+											A logout.hu középre igazítása.<br />
+											A felugró üzenetekben kattintható link az üzenetlistához.<br />
+											A kiegészítőhöz beállítási lehetőségek.<br />
+											Megújult értesítési motor, ez felhasználói oldalon a beállítási lehetőségeken keresztül is
+											megnyilvánul, valamint ezáltal a kiegészítő frissítéseiről is érkezik értesítés.
+										</li>
+										<li>2.0<br />
+											Eszköztár gombra kattintva felugróban a PH!-ról ismert partnerlista jelenik meg.
+											Ebben névre kattintva új lapon megnyílnak a partnerhez tartozó üzenetek.
+										</li>
+										<li>1.0<br />
+											Start! Üzenet értesítés.
+										</li>
+									</ul>
+								</div>
+							</section>
+						</div>
+						<div class="page hidden" id="general-page">
+							<h1>Általános beállítások</h1>
+							<section>
+								<h3>Engedélyek</h3>
+								<div>
+									<div class="checkbox">
+										<label>
+											<input id="topicsObserver" type="checkbox" />
+											<span>Témafigyelés</span>
+										</label>
+									</div>
+									<div class="checkbox">
+										<label>
+											<input id="messagesObserver" type="checkbox" />
+											<span>Üzenetfigyelés</span>
+										</label>
+									</div>
+								</div>
+							</section>
+						</div>
+						<div class="page hidden" id="notifications-page">
+							<h1>Értesítések</h1>
+							<section>
+								<h3>Engedélyek</h3>
+								<div>
+									<div class="checkbox">
+										<label>
+											<input id="notificationsEnabled" type="checkbox" />
+											<span>Globális engedély</span>
+										</label>
+									</div>
+									<div class="checkbox">
+										<label>
+											<input id="messagesNotificationEnabled" type="checkbox" />
+											<span>Üzenetértesítések</span>
+										</label>
+									</div>
+									<div class="checkbox">
+										<label>
+											<input id="topicsNotificatonEnabled" type="checkbox" />
+											<span>Téma értesítések</span>
+										</label>
+									</div>
+									<div class="checkbox">
+										<label>
+											<input id="errorsNotificationEnabled" type="checkbox" />
+											<span>Hibaértesítések</span>
+										</label>
+									</div>
+									<div class="checkbox">
+										<label>
+											<input id="loginNeed" type="checkbox" />
+											<span>Ellenőrzés és értesítés csak akkor, ha be vagy jelentkezve</span>
+										</label>
+									</div>
+								</div>
+							</section>
+							<section>
+								<h3>Megjelenési időtartam</h3>
+								<div>
+									<div>
+										<table>
+											<tr>
+												<td><input type="range" min="3" max="60" id="notificationTimeout" /></td>
+												<td style="padding-bottom: 5px;">
+													<span id="notificationTimeoutValue" class="no-effect" style="margin-left: 10px;"></span>
+													<span>&nbsp;mp</span>
+												</td>
+											</tr>
+										</table>
+									</div>
+								</div>
+							</section>
+						</div>
+						<div class="page hidden" id="hotkeys-page">
+							<h1>Billentyűparancsok</h1>
+							<section>
+								<h3>Engedély</h3>
+								<div>
+									<div>
+										<label>
+											<input type="checkbox" id="hotkeys-enabled" />
+										</label>
+									</div>
+								</div>
+							</section>
+							<section>
+								<h3>Parancsok</h3>
+								<div>
+									<div>
+										<div class="informational-text">
+											Add meg, hogy az adott funkcióhoz milyen billentyűparancsot szeretnél használni.
+											(Az engedélyezett módosító billentyűk: ctrl, alt, shift.)
+										</div>
+										<table>
+											<tr><td>Hozzászólás / üzenet küldése:</td><td><input type="text" name="send" class="hotkeys-input" /></td></tr>
+											<tr><td>Normál hozzászólás:</td><td><input type="text" name="normal-comment" class="hotkeys-input" /></td></tr>
+											<tr><td>Off topic hozzászólás:</td><td><input type="text" name="off-topic-comment" class="hotkeys-input" /></td></tr>
+											<tr><td>Félkövér:</td><td><input type="text" name="bold" class="hotkeys-input" /></td></tr>
+											<tr><td>Dőlt:</td><td><input type="text" name="italic" class="hotkeys-input" /></td></tr>
+											<tr><td>Aláhúzott:</td><td><input type="text" name="underlined" class="hotkeys-input" /></td></tr>
+											<tr><td>Áthúzott:</td><td><input type="text" name="strike-through" class="hotkeys-input" /></td></tr>
+											<tr><td>Off topic:</td><td><input type="text" name="off-topic" class="hotkeys-input" /></td></tr>
+											<tr><td>Link:</td><td><input type="text" name="link" class="hotkeys-input" /></td></tr>
+											<tr><td>Kép:</td><td><input type="text" name="image" class="hotkeys-input" /></td></tr>
+											<tr><td>Programkód:</td><td><input type="text" name="code" class="hotkeys-input" /></td></tr>
+											<tr><td>Monospace:</td><td><input type="text" name="monospace" class="hotkeys-input" /></td></tr>
+											<tr><td>Konvertálatlan:</td><td><input type="text" name="raw" class="hotkeys-input" /></td></tr>
+											<tr><td>Balra zárt:</td><td><input type="text" name="left-aligned" class="hotkeys-input" /></td></tr>
+											<tr><td>Jobbra zárt:</td><td><input type="text" name="right-aligned" class="hotkeys-input" /></td></tr>
+											<tr><td>Középre zárt:</td><td><input type="text" name="center-aligned" class="hotkeys-input" /></td></tr>
+											<tr><td>Sorkizárt:</td><td><input type="text" name="justify-aligned" class="hotkeys-input" /></td></tr>
+										</table>
+									</div>
+								</div>
+							</section>
+						</div>
+						<div class="page hidden" id="observedTopics-page">
+							<h1>Témaszerkesztő</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

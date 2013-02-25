@@ -1,0 +1,205 @@
+body {
+	font-family: Arial, sans-serif;
+	cursor: default;
+	font-size: 13px;
+}
+
+div#content {
+	display: -webkit-box;
+	display: block;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+}
+
+div#left-menu {
+	border-right: 1px solid #c6c9ce;
+	/* chrome */
+	background: -webkit-linear-gradient(rgba(234, 238, 243, 0.2), #eaeef3),
+			  -webkit-linear-gradient(left, #eaeef3, #eaeef3 97%, #d3d7db);
+	/* opera */
+	background: -o-linear-gradient(rgba(234, 238, 243, 0.2), #eaeef3),
+			  -o-linear-gradient(left, #eaeef3, #eaeef3 97%, #d3d7db);
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	top: 0;
+	width: 216px;
+	z-index: 2;
+}
+
+div#logo {
+	background-image: url('/images/icon48.png');
+	z-index: -1;
+	width: 48px;
+	height: 48px;
+	position: absolute;
+	margin: 30px 0px 0px 8px;
+}
+
+div#left-menu h1 {
+	padding-right: 24px;
+	-webkit-user-select: none;
+	color: #53637D;
+	font-size: 200%;
+	font-weight: normal;
+	margin: 0;
+	padding-bottom: 14px;
+	padding-top: 13px;
+	text-align: right;
+	text-shadow: white 0 1px 2px;
+}
+
+div#left-menu ul {
+	-webkit-user-select: none;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+div#left-menu li {
+	border-bottom: 1px solid transparent;
+	border-top: 1px solid transparent;
+	color: #426dc9;
+	cursor: pointer;
+	display: -webkit-box;
+	display: block;
+	font-size: 105%;
+	outline: none;
+	padding: 7px 0;
+	text-align: right;
+	text-shadow: white 0 1px 1px;
+	padding-right: 24px;
+}
+
+div#left-menu li.active {
+	/* chrome */
+	-webkit-box-shadow: 0px 1px 0px #F7F7F7;
+	/* opera */
+	box-shadow: 0px 1px 0px #F7F7F7;
+	/* chrome */
+	background: -webkit-linear-gradient(left, #BBCEE9, #BBCEE9 97%, #AABEDC);
+	/* opera */
+	background: -o-linear-gradient(left, #BBCEE9, #BBCEE9 97%, #AABEDC);
+	border-bottom: 1px solid #8FAAD9;
+	border-top: 1px solid #8FAAD9;
+	color: black;
+	text-shadow: #BBCEE9 0 1px 1px;
+}
+
+div#left-menu li a {
+	text-decoration: none;
+	color: #426dc9;
+}
+
+div#main {
+	-webkit-box-align: stretch;
+	padding-left: 216px;
+	margin: 0;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	z-index: 1;
+}
+
+div#main-content {
+	min-height: 100%;
+	position: relative;
+}
+
+div#main-pages {
+	box-sizing: border-box;
+	max-width: 888px;
+	min-width: 600px;
+	padding: 0 24px;
+}
+
+.page h1 {
+	padding-right: 24px;
+	-webkit-user-select: none;
+	border-bottom: 1px solid #EEE;
+	color: #53637D;
+	font-size: 200%;
+	font-weight: normal;
+	margin: 0;
+	padding-bottom: 4px;
+	padding-top: 13px;
+	text-shadow: white 0 1px 2px;
+}
+
+section {
+	-webkit-box-orient: horizontal;
+	border-bottom: 1px solid #EEE;
+	display: -webkit-box;
+	margin-top: 17px;
+	padding-bottom: 20px;
+}
+
+section > h3 {
+	font-size: 105%;
+	font-weight: bold;
+	margin: 0;
+	vertical-align: middle;
+	width: 140px;
+}
+
+section > div:only-of-type {
+	-webkit-box-flex: 1;
+}
+
+section > div > div {
+	margin: 5px 0;
+}
+
+section > div > div a {
+	text-decoration: none;
+}
+
+.hidden {
+	display: none;
+}
+
+input[type="checkbox"], input[type="radio"] {
+	margin-left: 0;
+	margin-right: 0;
+	position: relative;
+	top: 1px;
+}
+
+label > input[type="checkbox"], label > input[type="radio"] {
+	margin-top: 1px;
+}
+
+.informational-text {
+	color: grey;
+}
+
+select:focus {
+	outline-color: rgba(0, 128, 256, 0.5);
+}
+
+select {
+	-webkit-appearance: button;
+	-webkit-border-radius: 2px;
+	-webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+	-webkit-padding-end: 20px;
+	-webkit-padding-start: 2px;
+	-webkit-user-select: none;
+	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAICAYAAAAbQcSUAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9sCDwEnBT3jKacAAABaSURBVCjPY2CgA4gC4jQ8OIpokxKBgJmZ+RuQ+R8dg8RB8kQb9v//f4UFCxYsZGNj+4lsEIgPEgfJk+RPdAPJNgjdQD4+vi8UGYRs4Nu3b5soNgjJQFZi1AEAhHNE/wdnPVcAAAAASUVORK5CYII="), -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+	background-position: center right;
+	background-repeat: no-repeat;
+	border: 1px solid #AAA;
+	color: #555;
+	font-size: inherit;
+	margin: 0;
+	overflow: hidden;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
