@@ -7,7 +7,6 @@
 		"page": "bg_page.html"
 	},
 	"options_page": "options.html",
-	"update_url": "http://tamas.pcds.hu/downloads/ph_tools/updates.xml",
 	"browser_action": {
 		"default_icon" : "images/icon19.png",
 		"default_title": "Prohardver! Eszközök",
