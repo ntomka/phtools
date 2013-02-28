@@ -1,18 +1,3 @@
-// ==UserScript==
-// @include http://*.prohardver.hu/muvelet/*
-// @include http://prohardver.hu/muvelet/*
-// @include http://*.mobilarena.hu/muvelet/*
-// @include http://mobilarena.hu/muvelet/*
-// @include http://*.logout.hu/muvelet/*
-// @include http://logout.hu/muvelet/*
-// @include http://*.itcafe.hu/muvelet/*
-// @include http://itcafe.hu/muvelet/*
-// @include http://*.gamepod.hu/muvelet/*
-// @include http://gamepod.hu/muvelet/*
-// @include http://*.hardverapro.hu/muvelet/*
-// @include http://hardverapro.hu/muvelet/*
-// ==/UserScript=
-
 /**
  * Billentyűparancsok
  *

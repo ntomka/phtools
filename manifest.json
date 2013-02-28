@@ -46,10 +46,10 @@
 			"http://hardverapro.hu/*"
 		],
 		"js": [
-            "includes/mootools-core-1.4.5-full-nocompat-yc.js",
-			"includes/RequestSender.class.js",
-            "includes/observer.js",
-            "includes/hotkeys.js"
+            "js/mootools-core-1.4.5-full-nocompat-yc.js",
+			"js/RequestSender.class.js",
+            "js/observer.js",
+            "js/hotkeys.js"
         ]
 	},
 	{
@@ -62,7 +62,7 @@
 			"http://mobilarena.hu/tag/*",
 			"http://hardverapro.hu/tag/*"
 		],
-		"js": [ "includes/userpage.js" ]
+		"js": [ "js/userpage.js" ]
 	},
 	{
 		"run_at": "document_start",
@@ -80,7 +80,7 @@
 			"http://mobilarena.hu/privat/*",
 			"http://hardverapro.hu/privat/*"
 		],
-		"js": [ "includes/topicapro.js" ]
+		"js": [ "js/topicapro.js" ]
 	},
 	{
 		"run_at": "document_end",
