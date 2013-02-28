@@ -46,7 +46,7 @@
 			"http://hardverapro.hu/*"
 		],
 		"js": [
-            "includes/mootools-core-1.3.1-full-compat-yc.js",
+            "includes/mootools-core-1.4.5-full-nocompat-yc.js",
 			"includes/RequestSender.class.js",
             "includes/observer.js",
             "includes/hotkeys.js"
