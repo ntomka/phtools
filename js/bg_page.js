@@ -55,10 +55,12 @@ var requestListener = function ( src, notUsed /* chrome paraméter, felesleges s
 					break;
 				case "deleteObservedTopic" :
 					observedTopicsDatabase.del( request.topic );
+					ObserverBG.cleanNotifications();
 					sendResponse( null );
 					break;
 				case "readObservedTopic" :
 					ObserverBG.setRead( request.topic );
+					ObserverBG.cleanNotifications();
 					sendResponse( null );
 					break;
 			}
