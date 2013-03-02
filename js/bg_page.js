@@ -1,4 +1,4 @@
-var extensionVersion = "4.4.4";
+var extensionVersion = "4.4.5";
 
 Options.initialize();
 var tbi = new ToolbarIcon();
