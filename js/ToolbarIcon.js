@@ -2,25 +2,6 @@ var ToolbarIcon = new Class({
 	initialize: function() {
 		this.messages = 0;
 		this.topics = 0;
-
-		if ( window.opera ) {
-			this.button = opera.contexts.toolbar.createItem({
-				title: 'Prohardver! Eszközök',
-				icon: 'images/icon19.png',
-				popup: {
-					href: "popup.html",
-					width: 400
-				},
-				badge: {
-					textContent: '',
-					backgroundColor: '#006',
-					color: '#ff6',
-					display: 'block'
-				}
-			});
-			opera.contexts.toolbar.addItem( this.button );
-		}
-
 		this.set();
 	},
 
@@ -52,12 +33,9 @@ var ToolbarIcon = new Class({
 		else if (this.topics > 0 && this.messages > 0)
 			this.titleText = String(this.topics) + " témában új hozzászólás\n" + String(this.messages) + " új üzenet";
 
-		if ( window.chrome )
-			chrome.browserAction.setTitle({
-				title: this.titleText
-			});
-		else if ( window.opera )
-			this.button.title = this.badgeText;
+		chrome.browserAction.setTitle({
+			title: this.titleText
+		});
 	},
 
 	setBadge: function() {
@@ -70,12 +48,9 @@ var ToolbarIcon = new Class({
 		else if (this.topics > 0 && this.messages > 0)
 			this.badgeText = String(this.topics) + "|" + String(this.messages);
 
-		if ( window.chrome )
-			chrome.browserAction.setBadgeText({
-				text: this.badgeText
-			});
-		else if ( window.opera )
-			this.button.badge.textContent = this.badgeText;
+		chrome.browserAction.setBadgeText({
+			text: this.badgeText
+		});
 	},
 
 	set: function() {

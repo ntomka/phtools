@@ -18,8 +18,7 @@ var requestListener = function ( src, notUsed /* chrome paraméter, felesleges s
 		case "options" :
 			switch ( request.action ) {
 				case "get" :
-					// opera miatt kell encode-decode (WTF)
-					sendResponse( JSON.decode( JSON.encode( Options ) ) );
+					sendResponse( Options );
 					break;
 				case "set" :
 					Options.set( request.key, request.value );

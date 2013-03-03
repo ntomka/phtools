@@ -19,9 +19,6 @@ div#left-menu {
 	/* chrome */
 	background: -webkit-linear-gradient(rgba(234, 238, 243, 0.2), #eaeef3),
 			  -webkit-linear-gradient(left, #eaeef3, #eaeef3 97%, #d3d7db);
-	/* opera */
-	background: -o-linear-gradient(rgba(234, 238, 243, 0.2), #eaeef3),
-			  -o-linear-gradient(left, #eaeef3, #eaeef3 97%, #d3d7db);
 	position: fixed;
 	bottom: 0;
 	left: 0;
@@ -78,12 +75,8 @@ div#left-menu li {
 div#left-menu li.active {
 	/* chrome */
 	-webkit-box-shadow: 0px 1px 0px #F7F7F7;
-	/* opera */
-	box-shadow: 0px 1px 0px #F7F7F7;
 	/* chrome */
 	background: -webkit-linear-gradient(left, #BBCEE9, #BBCEE9 97%, #AABEDC);
-	/* opera */
-	background: -o-linear-gradient(left, #BBCEE9, #BBCEE9 97%, #AABEDC);
 	border-bottom: 1px solid #8FAAD9;
 	border-top: 1px solid #8FAAD9;
 	color: black;
