@@ -1,4 +1,4 @@
-var extensionVersion = "4.4.5";
+var extensionVersion = chrome.runtime.getManifest().version;
 
 Options.initialize();
 var tbi = new ToolbarIcon();
@@ -10,21 +10,18 @@ if ( Options.lastVersion == "3.1.23" || Options.lastVersion == "3.1.9002" ) {
 }
 var hotkeysDatabase = new HotkeysDatabase();
 
-var requestListener = function ( src, notUsed /* chrome paraméter, felesleges számomra */, callBack ) {
-	request = src;
-	sendResponse = callBack;
-
+var requestListener = function ( request, notUsed /* chrome paraméter, felesleges számomra */, callBack ) {
 	switch ( request.requestSource ) {
 		case "options" :
 			switch ( request.action ) {
 				case "get" :
-					sendResponse( Options );
+					callBack( Options );
 					break;
 				case "set" :
 					Options.set( request.key, request.value );
 					break;
 				case "getTopics" :
-					sendResponse( observedTopicsDatabase.getAll() );
+					callBack( observedTopicsDatabase.getAll() );
 					break;
 				case "setTopic" :
 					observedTopicsDatabase.set( request.topic, request.data );
@@ -37,17 +34,17 @@ var requestListener = function ( src, notUsed /* chrome paraméter, felesleges s
 		case "popup" :
 			switch ( request.action ) {
 				case "numNew" :
-					sendResponse( {
+					callBack( {
 						messages: tbi.getMessagesCounter(),
 						topics: tbi.getTopicCounter(),
 						observedTopics: observedTopicsDatabase.getAll()
 					} );
 					break;
 				case "messages" :
-					sendResponse( MSG.getPopupData() );
+					callBack( MSG.getPopupData() );
 					break;
 				case "topics" :
-					sendResponse( {
+					callBack( {
 						topics: observedTopicsDatabase.getAll(),
 						notifications: ObserverBG.notifications
 					} );
@@ -55,12 +52,12 @@ var requestListener = function ( src, notUsed /* chrome paraméter, felesleges s
 				case "deleteObservedTopic" :
 					observedTopicsDatabase.del( request.topic );
 					ObserverBG.cleanNotifications();
-					sendResponse( null );
+					callBack( null );
 					break;
 				case "readObservedTopic" :
 					ObserverBG.setRead( request.topic );
 					ObserverBG.cleanNotifications();
-					sendResponse( null );
+					callBack( null );
 					break;
 			}
 			break;
@@ -68,7 +65,7 @@ var requestListener = function ( src, notUsed /* chrome paraméter, felesleges s
 			switch ( request.action ) {
 				case "get" :
 					if ( request.topic )
-						sendResponse( observedTopicsDatabase.get( request.topic ) );
+						callBack( observedTopicsDatabase.get( request.topic ) );
 					break;
 				case "store" :
 					observedTopicsDatabase.set( request.topic, request.observedTopics );
@@ -77,9 +74,9 @@ var requestListener = function ( src, notUsed /* chrome paraméter, felesleges s
 					switch ( request.method ) {
 						case "get" :
 							if ( typeof request.topic == 'undefined' )
-								sendResponse( { posts: ObserverBG.notifications } );
+								callBack( { posts: ObserverBG.notifications } );
 							else
-								sendResponse( { notification: ObserverBG.getNotification( request.topic ) } );
+								callBack( { notification: ObserverBG.getNotification( request.topic ) } );
 							break;
 						case "set" :
 							ObserverBG.setNofitication( request.topic, request.data );
@@ -92,20 +89,20 @@ var requestListener = function ( src, notUsed /* chrome paraméter, felesleges s
 		case "hotkeys" :
 			switch ( request.action ) {
 				case "enabled" :
-					sendResponse( { enabled: Options.hotkeysEnabled } );
+					callBack( { enabled: Options.hotkeysEnabled } );
 					break;
 				case "get" :
 					if ( request.hotkey ) {
 						hotkey = hotkeysDatabase.get( request.hotkey );
 						if ( hotkey )
-							sendResponse( hotkey );
+							callBack( hotkey );
 					} else {
 						tmp = hotkeysDatabase.getAll();
 						hotkeys = { };
 						tmp.each( function ( hotkey ) {
 							hotkeys[hotkey.id] = hotkey.value;
 						} );
-						sendResponse( { data: hotkeys } );
+						callBack( { data: hotkeys } );
 					}
 					break;
 				case "set" :
@@ -116,7 +113,7 @@ var requestListener = function ( src, notUsed /* chrome paraméter, felesleges s
 	}
 };
 
-chrome.extension.onRequest.addListener( requestListener );
+chrome.extension.onMessage.addListener( requestListener );
 
 function parseVersionString ( str ) {
 	if ( typeof( str ) != 'string' )

@@ -215,7 +215,7 @@ ObserverBG = {
 					) {
 						if (direction == -1) {
 							posts = parseInt(ObserverBG.tmpDiv.getElements('div[id="navi_top_pages"] > div > div.menu > ul > li > a > span')[0].innerHTML);
-							lastPostTime = ObserverBG.tmpDiv.getElements('li.time')[0].innerHTML;
+							lastPostTime = ObserverBG.tmpDiv.getElements('div.msgblk:not(.thrcnt) li.time')[0].innerHTML;
 						} else {
 							tmp = ObserverBG.tmpDiv.getElements('div[id="navi_top_pages"] > div > div.menu > ul > li > a > span');
 							posts = parseInt(tmp[tmp.length - 1].innerHTML);

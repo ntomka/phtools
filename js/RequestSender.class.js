@@ -1,7 +1,7 @@
 var RequestSender = {
 	rs: new Class( {
 		initialize: function ( reqObj, userCallBack ) {
-			this.requestSender = chrome.extension.sendRequest;
+			this.requestSender = chrome.extension.sendMessage;
 
 			this.reqObj = reqObj;
 			this.userCallBack = userCallBack;

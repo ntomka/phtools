@@ -36,7 +36,7 @@ var Observer = {
 	},
 
 	get: function(forward) {
-		chrome.extension.sendRequest({
+		chrome.extension.sendMessage({
 			requestSource: "observer",
 			action: "get",
 			topic: Observer.topic
@@ -46,7 +46,7 @@ var Observer = {
 	},
 
 	notification: function(method, forward, topic, data) {
-		chrome.extension.sendRequest({
+		chrome.extension.sendMessage({
 			requestSource: "observer",
 			action: "notification",
             method: method,
@@ -59,7 +59,7 @@ var Observer = {
 	},
 
 	store: function(observedTopics) {
-		chrome.extension.sendRequest({
+		chrome.extension.sendMessage({
 			requestSource: "observer",
 			action: "store",
 			topic: Observer.topic,
@@ -341,11 +341,16 @@ var Observer = {
 	getLastPostTime: function() {
 		direction = Observer.getDirection();
 		if (Observer.lastPostTime == '') {
-			if (Observer.domain == 'prohardver.hu' || Observer.domain == 'mobilarena.hu') {
+			if (
+				Observer.domain == 'prohardver.hu'
+				|| Observer.domain == 'mobilarena.hu'
+				|| Observer.domain == 'itcafe.hu'
+				|| Observer.domain == 'gamepod.hu'
+			) {
 				if (direction == -1)
-					lastPostTime = $$('li.time')[0].innerHTML;
+					lastPostTime = $$('div.msgblk:not(.thrcnt) li.time')[0].innerHTML;
 				else {
-					tmp = $$('li.time');
+					tmp = $$('div.msgblk:not(.thrcnt) li.time');
 					lastPostTime = tmp[tmp.length - 1].innerHTML;
 				}
 			} else {
