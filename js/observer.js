@@ -1,8 +1,4 @@
 var Observer = {
-	tween: {
-		transition: Fx.Transitions.Quad.easeInOut,
-		duration: 1000
-	},
 	actUser: '',
 	domain: '',
 	topic: '',
@@ -98,35 +94,14 @@ var Observer = {
                     'li > p > a[href^="/' + type + '/' + observedTopics.posts[j].id + '/"]',
                     'td > a[href^="/' + type + '/' + observedTopics.posts[j].id + '/"]'
                 ];
-            links.each(function(item) {
-				topicOnPage = $$(item);
-				if (topicOnPage.length != 0 && observedTopics.posts[j].newPosts) {
-					topicOnPage.set('tween', Observer.tween);
-					topicOnPage.tween('color', '#F00');
+            links.each( function ( item ) {
+				topicOnPage = $$( item );
+				if ( topicOnPage.length != 0 && observedTopics.posts[j].newPosts ) {
+					topicOnPage.addClass( 'red' );
 				}
-			});
+			} );
 		}
 		if (Observer.topicType == 'tema' || Observer.topicType == 'bejegyzes' || Observer.topicType == 'apro') {
-			if (Observer.domain == 'prohardver.hu') {
-				style1 = '#dfd3a9';
-				style2 = '#c8b587';
-			} else if (Observer.domain == 'itcafe.hu') {
-				style1 = '#e9dec2';
-				style2 = ['#f87316', '#b42224', '#760000'];
-				style3 = '#760000';
-			} else if (Observer.domain == 'gamepod.hu') {
-				style1 = '#FFE9BF';
-				style2 = ['#606060', '0', '0'];
-			} else if (Observer.domain == 'mobilarena.hu') {
-				style1 = '#D5CCB3';
-				style2 = '#BEAE8B';
-			} else if (Observer.domain == 'logout.hu') {
-				style1 = '#DFD0A7';
-				style2 = ['#CFB98E', '#9F886D', '0'];
-			} else if (Observer.domain == 'hardverapro.hu') {
-                style1 = '#DFD0A7';
-				style2 = ['#CFB98E', '#9F886D', '0'];
-            }
 			j = topicIndex;
 			if (j == undefined || observedTopics.posts[j].newPosts == 0)
 				return;
@@ -137,19 +112,18 @@ var Observer = {
 				|| Observer.domain == 'gamepod.hu'
 			) {
 				posts1 = $$('div.msgblk:not(.thrcnt) div.msg.flc');
-				posts2 = $$('div.msgblk:not(.thrcnt) div.msg.flc > div.hlist.head.flc');
 				permalinks = $$('div.msgblk:not(.thrcnt) div.msg.flc > div.hlist.head.flc > p > a[title~="Sorszám"]');
 				posters = $$('div.msgblk:not(.thrcnt) div.msg.flc > div.hlist.head.flc > p');
-			} else {
+			}
+			else {
 				posts1 = $$('div.uzik');
-				posts2 = $$('div.uzik > div.fejlec');
 				permalinks = $$('div.uzik > div.fejlec > h4 > a[title~="Sorszám"]');
 				posters = $$('div.uzik > div.fejlec > h4');
 			}
 			direction = Observer.getDirection();
 			countActUserPosts = 0;
 			Observer.toColorize[0] = observedTopics.posts[j].newPosts;
-			for (i = 0; i < observedTopics.posts[j].newPosts; i++)
+			for (i = 0; i < observedTopics.posts[j].newPosts; i++) {
 				if (i < posts1.length) {
 					u = direction == -1 ? i : posts1.length - i - 1;
 					actPostNum = permalinks[u].innerHTML.substr(1);
@@ -160,24 +134,16 @@ var Observer = {
 						countActUserPosts++;
 						continue;
 					}
-					if (Observer.domain == 'prohardver.hu' || Observer.domain == 'mobilarena.hu') {
-						posts1[u].set('tween', Observer.tween);
-						posts1[u].tween('background-color', style1);
-						posts2[u].set('tween', Observer.tween);
-						posts2[u].tween('background-color', style2);
-					} else {
-						posts1[u].set('tween', Observer.tween);
-						posts1[u].tween('background-color', style1);
-						new Fx.Morph(posts2[u], Observer.tween).start({
-							'background-color': style2[0],
-							'border-color': style2[1],
-							'color': style2[2]
-						});
+					if ( !posts1[u].hasClass( 'isnew' ) ) {
+						posts1[u].addClass( 'isnew' );
 					}
-				} else {
+					continue;
+				}
+				else {
 					Observer.toColorize[1] = observedTopics.posts[j].newPosts;
 					break;
 				}
+			}
 			pageTitle = document.getElementsByTagName('title')[0];
 			newTitle = observedTopics.posts[j].newPosts - countActUserPosts > 0 ? '(' + observedTopics.posts[j].newPosts + ') ' + pageTitle.innerHTML : pageTitle.innerHTML;
 			pageTitle.innerHTML = newTitle;
@@ -194,8 +160,7 @@ var Observer = {
 				src: starImageSrc,
 				alt: "o",
 				title: "Téma figyelése",
-				height: "13px",
-				opacity: 0
+				height: "13px"
 			};
 			if (
 				Observer.domain == 'prohardver.hu'
@@ -233,8 +198,6 @@ var Observer = {
 				img = new Element('img', starAttributes);
 				img.inject(span);
 				span.inject(fejlecek[i], where);
-				img.set('tween', Observer.tween);
-				img.tween('opacity', '1');
 			});
 		}
 	},

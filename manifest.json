@@ -1,7 +1,7 @@
 {
 	"manifest_version": 2,
 	"name": "Prohardver! Eszközök",
-	"version": "4.4.7",
+	"version": "4.4.8",
 	"description": "A Prohardver! lapcsalád funkcióit bővítő kiegészítő.",
 	"background": {
 		"scripts": [
@@ -60,7 +60,8 @@
 			"js/RequestSender.class.js",
             "js/observer.js",
             "js/hotkeys.js"
-        ]
+        ],
+		"css": ["css/common.css"]
 	},
 	{
 		"run_at": "document_start",

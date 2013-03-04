@@ -1,0 +1,14 @@
+a.red {
+	color: #f00 !important;
+}
+
+/* új hozzászólások */
+.msgblk .isnew,
+.msgblk .isnew .head,
+.uzik .isnew,
+.uzik .isnew .fejlec,
+a.red
+{
+	transition: all 1000ms ease-in-out;
+	-webkit-transition: all 1000ms ease-in-out;
+}
