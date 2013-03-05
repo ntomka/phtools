@@ -54,7 +54,6 @@ var MSG = {
 	},
 
 	getPopupData: function() {
-//		console.log(Options.loginNeed, MSG.loginNeed);
 		if ( Options.loginNeed && MSG.loginNeed )
 			return { message: [] };
 		try {
@@ -72,11 +71,16 @@ var MSG = {
 			for (i = 0; i < name.length; i++) {
 				face[i].src = face[i].src.replace(chrome.extension.getURL(''), "http://prohardver.hu/");
 				name[i].href = name[i].href.replace(chrome.extension.getURL(''), "http://prohardver.hu/");
+				var newMessages = num_new[i].innerHTML == '-' ? '-' : num_new[i].innerHTML;
+				// csillagozott üzenet van
+				if ( num_new[i].getElements( 'img' ).length ) {
+					newMessages = '0 db';
+				}
 				message.message.push({
 					face: face[i].src,
 					name: name[i].innerHTML,
 					name_url: name[i].href,
-					num_new: num_new[i].innerHTML == '-' ? '-' : num_new[i].innerHTML,
+					num_new: newMessages,
 					num_msg: num_msg[i].innerHTML == '-' ? '-' : num_msg[i].innerHTML,
 					time: time[i].innerHTML
 				});
@@ -104,8 +108,13 @@ var MSG = {
 				MSG.names.empty();
 				//console.log(messages);
 				for (i = 0; i < messages.length; i++) {
-					if ( messages[i].innerHTML == '-' )
+					if (
+						messages[i].innerHTML == '-'
+						// csillagozott hozzászólás van
+						|| messages[i].getElements('img').length
+					) {
 						new_num = 0;
+					}
 					else
 						new_num = new Number(messages[i].innerHTML.split(' ')[0]);
 						MSG.countMessages += new_num;
