@@ -45,7 +45,8 @@ var Notifications = {
 			notification: notification
 		});
 		notification.show();
+		//window.setTimeout("Notifications.cancel()", Options.notificationTimeout);
 		if (type == "networkError")
 			console.log(new Date(), "Hálózati hiba: " + title + " ; " + body);
 	}
-};
+}

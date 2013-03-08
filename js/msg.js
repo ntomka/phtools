@@ -13,14 +13,6 @@ var MSG = {
 	initialize: function(toolbarIcon) {
 		MSG.toolbarIcon = toolbarIcon;
 		MSG.refreshBadger();
-		chrome.alarms.create( 'msgRefresh', {
-			periodInMinutes: 1
-		} );
-		chrome.alarms.onAlarm.addListener( function ( alarm ) {
-			if ( alarm.name == 'msgRefresh' ) {
-				MSG.refreshBadger();
-			}
-		} );
 	},
 
 	showNotification: function() {
@@ -79,7 +71,7 @@ var MSG = {
 			for (i = 0; i < name.length; i++) {
 				face[i].src = face[i].src.replace(chrome.extension.getURL(''), "http://prohardver.hu/");
 				name[i].href = name[i].href.replace(chrome.extension.getURL(''), "http://prohardver.hu/");
-				var newMessages = num_new[i].innerHTML;
+				var newMessages = num_new[i].innerHTML == '-' ? '-' : num_new[i].innerHTML;
 				// csillagozott üzenet van
 				if ( num_new[i].getElements( 'img' ).length ) {
 					newMessages = '0 db';
@@ -89,7 +81,7 @@ var MSG = {
 					name: name[i].innerHTML,
 					name_url: name[i].href,
 					num_new: newMessages,
-					num_msg: num_msg[i].innerHTML,
+					num_msg: num_msg[i].innerHTML == '-' ? '-' : num_msg[i].innerHTML,
 					time: time[i].innerHTML
 				});
 			}
@@ -116,8 +108,11 @@ var MSG = {
 				MSG.names.empty();
 				//console.log(messages);
 				for (i = 0; i < messages.length; i++) {
-					// csillagozott hozzászólás van
-					if ( messages[i].getElements('img').length ) {
+					if (
+						messages[i].innerHTML == '-'
+						// csillagozott hozzászólás van
+						|| messages[i].getElements('img').length
+					) {
 						new_num = 0;
 					}
 					else
@@ -146,6 +141,7 @@ var MSG = {
 			MSG.reqErrorHandler();
 		},
 		onCancel: function() {
+			MSG.reqErrorHandler();
 		},
 		onException: function(headerName, value) {
 			MSG.reqErrorHandler();
@@ -160,5 +156,6 @@ var MSG = {
 		catch(e) {
 			console.log(new Date(), e);
 		}
+		window.setTimeout("MSG.refreshBadger()", 60000);
 	}
 };
