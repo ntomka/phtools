@@ -1,7 +1,7 @@
 {
 	"manifest_version": 2,
 	"name": "Prohardver! Eszközök",
-	"version": "4.4.9",
+	"version": "4.4.11",
 	"description": "A Prohardver! lapcsalád funkcióit bővítő kiegészítő.",
 	"background": {
 		"scripts": [
@@ -14,7 +14,7 @@
 			"js/observer-bg.js",
 			"js/bg_page.js"
 		],
-		"persistent": false
+		"persistent": true
 	},
 	"options_page": "options.html",
 	"browser_action": {
