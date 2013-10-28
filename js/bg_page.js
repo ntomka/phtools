@@ -149,9 +149,12 @@ document.addEvent( 'domready', function () {
 		console.log( new Date(), "Verzió nem változott." );
 	else if ( cv == "major" || cv == "minor" ) {
 		console.log( new Date(), "Verzió frissítve " + Options.lastVersion + " verzióról " + extensionVersion + " verzióra." );
-		if ( window.chrome )
-			Notifications.add( "update", "Új verzió!", 'A Prohardver! Eszközök frissült!<br /><a target="_blank" href="' +
-				chrome.extension.getURL( 'options.html' ) + '" title="Verziótörténet">Részletek itt!</a>' );
+		if ( window.chrome ) {
+            // chrome.extension.getURL( 'options.html' )
+			Notifications.add( "update", "Új verzió!", 'A Prohardver! Eszközök frissült!', {
+                buttons: [{title: 'Részletek'}]
+            } );
+         }
 		Options.set( "lastVersion", extensionVersion );
 	} else if ( !cv || cv == "fix" ) {
 		console.log( new Date(), "Verzió frissítve " + Options.lastVersion + " verzióról " + extensionVersion + " verzióra." );

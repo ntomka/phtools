@@ -281,17 +281,22 @@ ObserverBG = {
 						jump = '#rel_msgs';
 					else
 						jump = '#msg' + posts;
-					if (posts - lastPosts == 1 && lastNotifiedPosts == 0)
-						Notifications.add("topic", "Új hozzászólás!", '1 új hozzászólást adtak hozzá a(z) <i><a href="' + url + jump + '" title="' +
-							title + '" target="_blank">' + title + '</a></i> témában!');
-					else if (posts - lastPosts > 1 && lastNotifiedPosts == 0)
-						Notifications.add("topic", "Új hozzászólások!", (posts - lastPosts) + ' új hozzászólást adtak hozzá a(z) <i><a href="' +
-							url + jump + '" title="' + title + '" target="_blank">' + title + '</a></i> témában!');
-					else if (posts - lastPosts > 1 && lastNotifiedPosts != posts - lastPosts)
+                    // url + jump
+					if (posts - lastPosts == 1 && lastNotifiedPosts == 0) {
+						Notifications.add("topic", "Új hozzászólás!", '1 új hozzászólást adtak hozzá a(z) ' + title + ' témában!', {
+                            buttons: [{title: 'Megnyitás'}]
+                        });
+                    } else if (posts - lastPosts > 1 && lastNotifiedPosts == 0) {
+						Notifications.add("topic", "Új hozzászólások!", (posts - lastPosts) + ' új hozzászólást adtak hozzá a(z) ' + title + ' témában!', {
+                            buttons: [{title: 'Megnyitás'}]
+                        });
+                    } else if (posts - lastPosts > 1 && lastNotifiedPosts != posts - lastPosts) {
 						Notifications.add("topic", "Új hozzászólások!", (posts - lastPosts) +
 							" új hozzászólást (" + (posts - lastPosts - lastNotifiedPosts) +
-							' a legutolsó értesítés óta) adtak hozzá a(z) <i><a href="' +
-							url + jump + '" title="' + title + '" target="_blank">' + title + '</a></i> témában!');
+							' a legutolsó értesítés óta) adtak hozzá a(z) ' + title + ' témában!', {
+                            buttons: [{title: 'Megnyitás'}]
+                        });
+                    }
 					if (added) {
 						ObserverBG.notifications[i].newPosts = posts - lastPosts;
 						ObserverBG.notifications[i].lastPosts = lastPosts;
@@ -337,4 +342,4 @@ ObserverBG = {
 			ObserverBG.networkErrorNotified = true;
 		}
 	}
-}
+};

@@ -21,19 +21,25 @@ var MSG = {
 		if (MSG.lastNotificationCount == 0) {
 			title = MSG.countMessages.toString() + " új üzeneted érkezett " + MSG.names.length + " felhasználótól!";
 			for (i = 0; i < MSG.names.length; i++) {
-				body += '<a href="' + MSG.names[i].url + '" title="' + MSG.names[i].name + '" target="_blank">' + MSG.names[i].name + ' (' + MSG.names[i].numNew + ')</a>';
+                // MSG.names[i].url
+				body += MSG.names[i].name + ' (' + MSG.names[i].numNew + ')';
 				if (i < MSG.names.length - 1)
 					body += ', ';
 			}
-			Notifications.add("message", title, body);
+			Notifications.add("message", title, body, {
+                buttons: [{title: 'Üzenetek'}]
+            });
 		} else if (MSG.lastNotificationCount < MSG.countMessages) {
 			title = MSG.countMessages.toString() + " olvasatlan üzeneted van " + MSG.names.length + " felhasználótól (" + (MSG.countMessages - MSG.lastNotificationCount).toString() + ' új)!';
 			for (i = 0; i < MSG.names.length; i++) {
-				body += '<a href="' + MSG.names[i].url + '" title="' + MSG.names[i].name + '" target="_blank">' + MSG.names[i].name + ' (' + MSG.names[i].numNew + ')</a>';
+                // MSG.names[i].url
+				body += MSG.names[i].name + ' (' + MSG.names[i].numNew + ')';
 				if (i < MSG.names.length - 1)
 					body += ', ';
 			}
-			Notifications.add("message", title, body);
+			Notifications.add("message", title, body, {
+                buttons: [{title: 'Üzenetek'}]
+            });
 		}
 		MSG.lastNotificationCount = MSG.countMessages;
 	},
