@@ -4,8 +4,8 @@
 		<title>Prohardver! Eszközök</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta name="author" content="ntomka" />
-		<link rel="stylesheet" href="http://prohardver.hu/css/forum_v35.css" type="text/css" />
-		<link rel="stylesheet" href="http://prohardver.hu/css/common_v37.css" type="text/css" />
+		<link rel="stylesheet" href="http://prohardver.hu/css/forum_aade.css" type="text/css" />
+		<link rel="stylesheet" href="http://prohardver.hu/css/common_efda.css" type="text/css" />
 		<script type="text/javascript" src="js/mootools-core-1.4.5-full-nocompat-yc.js"></script>
 		<script type="text/javascript" src="js/RequestSender.class.js"></script>
 		<script type="text/javascript" src="js/popup.js"></script>
@@ -18,14 +18,16 @@
 				padding: 5px 0;
 				background-color: whitesmoke;
 				font-size: 12px;
-				height: 22px;
+				height: 40px;
 			}
 			div.popup-button {
 				padding: 3px 0px 0px 0px;
 				cursor: pointer;
 				border-radius: 5px;
 				width: 100px;
-				float: left;
+                height: 35px;
+                display: table-cell;
+                vertical-align: middle;
 			}
 			div.popup-button-active {
 				background-color: #FBD94F;
@@ -48,11 +50,11 @@
 			}
 			#settings-button {
 				position: absolute;
-				right: 0;
-				background: url('images/tool.png') top left no-repeat;
-				height: 24px;
-				width: 24px;
-				cursor: pointer;
+                right: 0;
+                background: url('images/tool.png') left center no-repeat;
+                height: 35px;
+                width: 24px;
+                cursor: pointer;
 			}
 		</style>
 	</head>
@@ -63,6 +65,14 @@
 				<div id="topics-button" class="popup-button">
 					<img alt="t" class="popup-button-icon" src="images/chat-conversation.png" />
 					Témák
+				</div>
+				<div id="topics-button" class="popup-button">
+					<img alt="k" class="popup-button-icon" src="images/chat-conversation.png" />
+					Kedvenc témák
+				</div>
+				<div id="topics-button" class="popup-button">
+					<img alt="l" class="popup-button-icon" src="images/chat-conversation.png" />
+					Itt szóltam hozzá
 				</div>
 				<div id="messages-button" class="popup-button popup-button-active">
 					<img alt="ü" class="popup-button-icon" src="images/mail.png" />
