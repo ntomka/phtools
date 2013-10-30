@@ -5,7 +5,7 @@ window.addEvent('domready', function() {
 	var text = nickDiv.getElement('h1').clone();
 	text.getChildren().dispose();
 	var link = new Element('a', {
-		href: 'http://hardverapro.hu/aprok/keres.php?suser=' + text.innerText.trim(),
+		href: 'http://hardverapro.hu/tag/' + text.innerText.trim(),
 		title: 'Apróhirdetései',
 		html: 'Apróhirdetései',
 		target: '_blank'
