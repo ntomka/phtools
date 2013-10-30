@@ -25,10 +25,19 @@ var Observer = {
 	setActUser: function() {
 		if (Observer.topicType != 'tema' && Observer.topicType != 'bejegyzes' && Observer.topicType != 'apro')
 			return;
-		if (Observer.domain == 'prohardver.hu' || Observer.domain == 'mobilarena.hu')
-			Observer.actUser = $$('div#right.flc > div > ul > li.access > p > a > em')[0].innerHTML;
-		else
-			Observer.actUser = $$('div > div > ul > li > p > a > em, div > div > ul > li > p > a > i')[0].innerHTML;
+		if (
+            Observer.domain == 'prohardver.hu'
+            || Observer.domain == 'mobilarena.hu'
+            || Observer.domain == 'itcafe.hu'
+            || Observer.domain == 'gamepod.hu'
+        ) {
+			Observer.actUser = $$('div#right.flc > div > ul > li.access > p > a > em')[0];
+        } else {
+			Observer.actUser = $$('div > div > ul > li > p > a > em, div > div > ul > li > p > a > i')[0];
+        }
+        if (typeof Observer.actUser != 'undefined') {
+            Observer.actUser = Observer.actUser.innerHTML;
+        }
 	},
 
 	get: function(forward) {
